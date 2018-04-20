@@ -22,8 +22,8 @@ Use the **#**!
 
 You just type the `#` followed by part of the text you want to search for, lets use "windows" as our example and then **tab**.
 
-~~~ powershell
+```powershell
 #windows
-~~~
+```
 
 It looks strange, since it seems like you're typing in a comment, but trust me.  You'll find you can tab through all of your history items that match 'windows'.  Pretty cool!

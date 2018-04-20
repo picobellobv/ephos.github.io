@@ -29,7 +29,7 @@ I wanted to write a function for some DNS work that accepted a CimSession as a p
 
 To show you what I ran into I set up this little test...
 
-~~~ powershell
+```powershell
 #Open a PowerShell CimSession to the DNS server, store it in a variable named 'dnsCimSession'
 New-CimSession -ComputerName kappa -Credential $myCredential -OutVariable dnsCimSession
 
@@ -49,7 +49,7 @@ function Test-OutVariable
             Write-Output -InputObject $CimSession
     }
 }
-~~~
+```
 
 This test function CimSession parameter *should* take our CimSession from our 'dnsCimSession' variable that the New-CimSession returned, right?
 
@@ -71,13 +71,13 @@ It is an ArrayList.  I did some testing by declaring a new ArrayList and adding 
 
 Why does -OutVariable return an ArrayList though?  Lets check the help!
 
-~~~ powershell
+```powershell
 Get-Help -Name about_CommonParameters -Detailed
-~~~
+```
 
 ***(Excerpt below from the Get-Help)***
 
-~~~ text
+```text
  -OutVariable [+]<variable-name
     Alias: ov
 
@@ -100,7 +100,7 @@ Get-Help -Name about_CommonParameters -Detailed
     The following command displays the contents of the $out variable:
 
         $out
-~~~
+```
 
 Would you look at that!?  The -OutVariable common parameter has an ability to append more values to the same variable.  I honestly can't think of a use case for this but it seems like the PowerShell developers made a design decision to give -OutVariable this ability in the beginning.  I did some additional digging and found another person who ran into this that posted on StackoverFlow as well as a Github issues filed for it.
 

@@ -13,7 +13,7 @@ I found myself stepping through a function I was writing to let me just upgrade 
 
 *...for those interested, the rough draft.  A little sloppy but im just putzing around today...*
 
-~~~ powershell
+```powershell
 function Update-PowerShellModules
 {
     [CmdletBinding(SupportsShouldProcess = $true, ConfirmImpact = 'High')]
@@ -70,7 +70,7 @@ function Update-PowerShellModules
         }
     }
 }
-~~~
+```
 
 Now, there are a fair deal of modules that come with PowerShell itself *(Microsoft.PowerShell.Management, Microsoft.PowerShell.Security etc..)* or modules that are installed separately with tools like RSAT *(ActiveDirectory, Hyper-V, etc.. )*.  I thought about trying to find a way to exclude these while including Pester, PackageManagement, PowerShellGet, etc.. but for the time being just decided to let them get checked and skip them if no action could be taken.
 
