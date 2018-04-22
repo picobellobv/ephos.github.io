@@ -1,9 +1,12 @@
 ---
-layout: post
-comments: true
 title: VSCode Debugging - Conditional Breakpoints
-tags: powershell vscode debug
+teaser: Learn how to use conditional breakpoints in VSCode.  The better you debug, the faster you solve problems!
+category: powershell
+tags: [editor, powershell]
 ---
+
+
+
 
 We all know that conditional love is a bad thing, sometimes conditional contracts depending on which side you're on.  There is however *one* conditional thing we are going to talk about today that is great...  Conditional breakpoints in Visual Studio Code debugging!
 
@@ -48,7 +51,7 @@ function Update-PowerShellModules
             if ($module.Version -lt $moduleLookup.Version)
             {
                 Write-Verbose -Message "Module $($module.Name) is at version $($module.Version), version $($moduleLookup.Version) is available."
-                try 
+                try
                 {
                     if ($PSCmdlet.ShouldProcess("Update $($module.Name) to $($moduleLookup.Version)?"))
                     {
@@ -114,3 +117,10 @@ Now it doesn't matter what position Pester ends up in the list, we'll pause when
 #### A Note on Debugging PowerShell
 
 If you're new to debugging PowerShell it can be a little intimidating at first, but it will honestly help you solve those really strange *"What the hell is my code even doing???"* and *"How is this happening?"* kind of problems.  Check out the link above on how to use the VS Code debugger, it's honestly never been easier than now to debug PowerShell.  Even if you only break it out for those complicated super stumpers, give it a try you won't regret it!  9 out of 10 dentists recommend you debug more, it's for your own good.
+
+Update 4-22-2018[^1]
+
+---
+
+[^1]:
+    I went through a big update in April 2018, this article was moved as part of that!

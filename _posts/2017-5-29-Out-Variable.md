@@ -1,23 +1,23 @@
 ---
-layout: post
-comments: true
 title: -OutVariable, A Cautionary Tale...
-tags: powershell
+teaser: -OutVariable, a useful common parameter, but maybe not as straight forward as you always thought!
+category: powershell
+tags: [powershell]
 ---
 
 In PowerShell we are provided common parameters.  A common parameter is a parameter that is available on every Cmdlet or also on any advanced function that is decorated with the `[CmdletBinding()]` attribute before the param block.
 
 One of my favorite common parameters *was* -OutVariable.  It allowed me to type a really long command out and then at the end if I decided I wanted to store it in a variable I could just append the -OutVariable or -ov parameter and then the variable name.
 
-~~~ powershell
+```powershell
 Invoke-ExampleCommand -Parameter1 Foo -Parameter2 Bar -Parameter3 Fiz -Parameter4 qux -OutVariable variableName
-~~~
+```
 
 It saved me from having to bounce back to the front of the command using either the Ctrl+LeftArrow or the Home key.  Yes I am literally that lazy, the fewer keystrokes the better!
 
-~~~ powershell
+```powershell
 $variableName = Invoke-ExampleCommand -Parameter1 Foo -Parameter2 Bar -Parameter3 Fiz -Parameter4 qux
-~~~
+```
 
 Both commands above accomplish the same thing, but the second one might have required me spending those extra moments getting to the front of the command to store it.
 
@@ -75,37 +75,52 @@ Why does -OutVariable return an ArrayList though?  Lets check the help!
 Get-Help -Name about_CommonParameters -Detailed
 ```
 
-***(Excerpt below from the Get-Help)***
+> #### Excerpt from Get-Help -Name about_CommonParameters -Detailed
+> -OutVariable [+] Alias: ov
+>
+>    Stores output objects from the command in the specified variable and
+>    displays it at the command line.
+>
+>    To add the output to the variable, instead of replacing any output
+>    that might already be stored there, type a plus sign (+) before the
+>    variable name.
+>
+>    For example, the following command creates the $out variable and
+>    stores the process object in it:
+>
+>    <b>&emsp;Get-Process PowerShell -OutVariable out</b>
+>
+>    The following command adds the process object to the $out variable:
+>
+>    <b>&emsp;Get-Process iexplore -OutVariable +out</b>
+>
+>    The following command displays the contents of the $out variable:
+>
+>    <b>&emsp;$out</b>
 
-```text
- -OutVariable [+]<variable-name
-    Alias: ov
-
-    Stores output objects from the command in the specified variable and
-    displays it at the command line.
-
-    To add the output to the variable, instead of replacing any output
-    that might already be stored there, type a plus sign (+) before the
-    variable name.
-
-    For example, the following command creates the $out variable and
-    stores the process object in it:
-
-        Get-Process PowerShell -OutVariable out
-
-    The following command adds the process object to the $out variable:
-
-        Get-Process iexplore -OutVariable +out
-
-    The following command displays the contents of the $out variable:
-
-        $out
-```
-
-Would you look at that!?  The -OutVariable common parameter has an ability to append more values to the same variable.  I honestly can't think of a use case for this but it seems like the PowerShell developers made a design decision to give -OutVariable this ability in the beginning.  I did some additional digging and found another person who ran into this that posted on StackoverFlow as well as a Github issues filed for it.
+Would you look at that!?  The -OutVariable common parameter has an ability to append more values to the same variable.  I've never personally had a use case for this myself.  It seems like the PowerShell developers made this design decision for `-OutVariable` this way in the beginning of PowerShell 1.0.  I did some additional digging and found another person who ran into this that posted on Stack OverFlow as well as a few Github issues filed for it.
 
 - [StackOverFlow Post](https://stackoverflow.com/questions/40666291/using-outvariable-creates-arraylist)
 - [GitHub PowerShell Issue 3154](https://github.com/PowerShell/PowerShell/issues/3154)
 - [GitHub PowerShell Issue 3773](https://github.com/PowerShell/PowerShell/issues/3154)
 
-It appears that it has been this way since the beginning.  It was up for committee review and it was decided that the behavior for these common parameters should be to return the type the user expected rather than an ArrayList.  It looks as if it was added to the PowerShell 6.0.0 milestone, exciting times!  In the meantime I've just stopped using -OutVariable, and if you choose to use it, be aware you're getting an ArrayList back rather than the type you think it will be.
+It was up for committee review and it was decided that the behavior for these common parameters should be to return the type the user expected rather than an ArrayList.  It looks as if it was added to the PowerShell 6.0.0 milestone, exciting times!  In the meantime I've just stopped using -OutVariable, and if you choose to use it, be aware you're getting an ArrayList back rather than the type you think it will be.
+
+### Update [April 20th, 2018]
+
+Boy heckin' howdy!  I followed up on this sucker and there are some updates to bring you!
+
+>It was up for committee review and it was decided that the behavior for these common parameters should be to return the type the user expected rather than an ArrayList.  It looks as if it was added to the PowerShell 6.0.0 milestone, exciting times!
+
+It was up for committee, an [RFC](https://github.com/PowerShell/PowerShell-RFC/pull/120) was opened up.  If you aren't familiar with an RFC is a "Request for Comments" and its more or less used for everyone to voice their concerns, opinions, design and implementation details on protocol, language, technology etc.
+
+What a doozy of a discussion this one was, and honestly after reading it both sides make a solid point.  As it stands, I don't know what my own opinion is and I do understand that changing it would be a potentially big breaking change for the language for anyone who is using this in their code.
+
+In the end, I want to say that it is a truly amazing time where the community and PowerShell developers can have open discussion in a public forum on the future direction of the language!  Regardless of the outcome, I am happy to live in a time where we have this kind of collaboration in the PowerShell and .Net space!
+
+Update 4-22-2018[^1]
+
+---
+
+[^1]:
+    I went through a big update in April 2018, this article was moved as part of that!

@@ -1,8 +1,8 @@
 ---
-layout: post
-comments: true
 title: Where to Begin?
-tags: learning powershell
+teaser: You want to start learning PowerShell, but where do you even start?! Hint; Here!
+category: powershell
+tags: [learning, powershell]
 ---
 
 The age old question... *"Where do I start?"*
@@ -20,7 +20,7 @@ In my opinion the absolute best place to start is the *Getting Started with Powe
 My second suggested resource(s) are the free eBooks on GitBook provided by the DevOps Collective.  To this day I still reference The Big Book of PowerShell Gotchas for clarity on occasion on some topics.
 **[The DevOps Collective eBooks](https://www.gitbook.com/@devopscollective)**  *(The **[PowerShell.org YouTube](https://www.youtube.com/channel/UCqIw7UUwC5fUBFXYX68aMrQ)** page has been converting these to videos as well.)*
 
-In regards to how your code should look or be styled there is no better free place for this than PoshCode's PowerShellPracticeAndStyle repository.  In short what this refers to is how readable your code is and that you are following a basic guideline of rules in regards to writing code *(i.e. always declaring the [CmdletBinding()] attribute on a function)*.  
+In regards to how your code should look or be styled there is no better free place for this than PoshCode's PowerShellPracticeAndStyle repository.  In short what this refers to is how readable your code is and that you are following a basic guideline of rules in regards to writing code *(i.e. always declaring the [CmdletBinding()] attribute on a function)*.
 **[PowerShellPracticeAndStyle](https://github.com/PoshCode/PowerShellPracticeAndStyle/blob/master/Style%20Guide/Introduction.md)**
 
 As for built-in resources, hit up the about help files!  Make sure you run `Update-Help` first if you haven't yet to get the most updated help files.
@@ -34,3 +34,10 @@ Lastly, the community!  Never hesitate to ask a question in fear that you think 
 Don't forget to check out your closest PowerShell user group as well.
 
 That is all, there are plenty of other great resources out there as well but I wanted to focus on the free ones anyone can access as cost shouldn't be a barrier to begin learning PowerShell.  Learning something new can sometimes feel daunting.  There may be times you get stuck for hours, maybe even days.  There will be other times you feel like you are constantly wrestling topics that you just can't seem to get figured out.  At rare times you may even feel like you've regressed.  I assure you if you stick with learning PowerShell, you will come to find you'll see the payoff as time goes on.  You'll likely want to start automating all of the mundane tasks that eat up so much time.
+
+Update 4-22-2018[^1]
+
+---
+
+[^1]:
+    I went through a big update in April 2018, this article was moved as part of that!

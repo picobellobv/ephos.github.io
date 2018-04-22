@@ -1,8 +1,8 @@
 ---
-layout: post
-comments: true
-title: Did you know?
-tags: didyouknow powershell
+title: Did you know? "#" Console Searching
+teaser: When PSReadline isn't an option, find previously run commands with this alternative method!
+category: didyouknow
+tags: [didyouknow, powershell]
 ---
 
 ### Did you know - PowerShell Console, "#" Console Searching!
@@ -13,7 +13,7 @@ Here's one my colleague recently discovered that has changed my (PowerShell) lif
 
 Depending on your age or geographic location you've probably had in depth and long philosophical conversations on if this is called the pound sign, hash, hashtag, number sign, or octothorpe.  Regardless it's an amazing little tool in the PowerShell console.
 
-Say you've been doing some work but needed to recall a command you ran over an hour ago!  You could hit "Up Arrow" in the console to scroll through all of them but you might have run hundreds of commands or not really recall how many ago it was.  You could run `Get-History` followed by copying the command or running `Invoke-History`, but this is at least 2 whole steps and some extra typing.  I need to run the command to list the contents of *C:\Windows\\*.
+Say you've been doing some work but needed to recall a command you ran over an hour ago!  You could hit "Up Arrow" in the console to scroll through all of them but you might have run hundreds of commands or not really recall how many ago it was.  You could run `Get-History` followed by copying the command or running `Invoke-History`, but this is at least 2 whole steps and some extra typing.  I need to run the command to list the contents of _C:\Windows\\_.
 
 Use the **#**!
 
@@ -27,3 +27,10 @@ You just type the `#` followed by part of the text you want to search for, lets 
 ```
 
 It looks strange, since it seems like you're typing in a comment, but trust me.  You'll find you can tab through all of your history items that match 'windows'.  Pretty cool!
+
+Update 4-22-2018[^1]
+
+---
+
+[^1]:
+    I went through a big update in April 2018, this article was moved as part of that!

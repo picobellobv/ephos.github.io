@@ -1,91 +1,88 @@
-#
-# This file contains configuration flags to customize your site
-#
+#######################
+# Theme Customization #
+#######################
 
-# Name of your site (displayed in the header)
-name: Rob
+title: ephos # used in <title> tag & site header
+author: Rob Pleau # used in a <meta> tag & /feed.xml
+description: > # used in a <meta> tag & /feed.xml
+  Ramblings from a nerd passionate about technology and coding.
+slogan: ❤ Automation # used in site header, beside title
+#avatar: /images/avatar.png
+avatar: https://avatars3.githubusercontent.com/u/14333618?v=3&s=460 # used as portrait in site header
+#banner: /images/mountains.svg # used as background in site header
+banner: /images/banner.svg
+url: https://ephos.github.io/ # used by plugins to generate feed.xml and sitemap.xml
+baseurl: '' # prepended to all absolute filepaths
+repo: https://github.com/ephos/ephos.github.io # used in footer
 
-# Short bio or description (displayed in the header)
-description: Systems automation specialist and enthusiast.  
+# Objects listed here will appear in the main nav menu.
+# Exceeding four items may cause problems on the desktop (>900px wide) layout.
+nav_menu:
+  - name: Posts
+    url: /
+    icon: /images/icons.svg#posts # icons should be 24x24 px.
+  - name: Projects
+    url: /projects
+    icon: /images/icons.svg#portfolio
+  - name: GitHub
+    url: https://github.com/ephos
+    icon: /images/icons.svg#github
+    outbound: true      # this key sets a link to open in a new window.
+  - name: Me
+    icon: /images/icons.svg#portfolio
+    url: /about
+  - name: Contact
+    scheme: mailto      # these keys enable email obfuscation.
+    handle: rj.pleau       # you know, to protect you from bots. (handle and domain
+    domain: gmail.com  # are separated in case bots crawl GitHub repos, too.)
+    icon: /images/icons.svg#email
 
-# URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://avatars3.githubusercontent.com/u/14333618?v=3&s=460
+# Objects listed here will appear on the /projects.html page.
+projects:
+  - title: PowerShell Summit 2018
+    teaser: My "Creating PowerShell Projects and More with Plaster" Demo
+    url: https://github.com/ephos/PSSummit2018-Plaster
+    role: Creator
+    category: PowerShell
 
-#
-# Flags below are optional
-#
+###########
+# Plugins #
+###########
 
-# Includes an icon in the footer for each username you enter
-footer-links:
-  dribbble:
-  email: rjpleau@gmail.com
-  facebook:
-  flickr:
-  github: ephos
-  instagram:
-  linkedin: rob-pleau-39075647
-  pinterest:
-  rss: # just type anything here for a working RSS icon
-  twitter: rjpleau
-  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-  youtube: # channel/<your_long_string> or user/<user-name>
-  googleplus: # anything in your profile username that comes after plus.google.com/
-
-
-# Enter your Disqus shortname (not your username) to enable commenting on posts
-# You can find your shortname on the Settings page of your Disqus account
-disqus:
-
-# Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 google_analytics: UA-106214312-1
 
-# Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
-# Used for Sitemap.xml and your RSS feed
-url: https://ephos.github.io/
+#################
+# Site Settings #
+#################
 
-# If you're hosting your site at a Project repository on GitHub pages
-# (http://yourusername.github.io/repository-name)
-# and NOT your User repository (http://yourusername.github.io)
-# then add in the baseurl here, like this: "/repository-name"
-baseurl: ""
-
-permalink: /:title/
-
-# The release of Jekyll Now that you're using
-version: v1.2.0
-
-# Set the Sass partials directory, as we're using @imports
-sass:
-  style: :expanded # You might prefer to minify using :compressed
-
-# Use the following plug-ins
-gems:
-  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
-  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
-
-# Exclude these files from your production _site
+incremental: true
 exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE
   - README.md
-  - CNAME
+  - TODO.md
 
+permalink: /:collection/:path
 
-markdown: kramdown
-# !github-pages! mandatory › https://help.github.com/articles/using-jekyll-with-pages/#configuration-settings-you-cannot-change
-# Since Jekyll 3 the default highlighter is Rouge (replaced Pygments.rb in v44)
-highlighter: rouge
+collections:
+  category: { output: true }
+  tag:      { output: true }
 
-# More › http://kramdown.gettalong.org/quickref.html
-# Options › http://kramdown.gettalong.org/options.html
-kramdown:
-  input: GFM
-  # https://github.com/jekyll/jekyll/pull/4090
-  syntax_highlighter: rouge
+defaults:
+  - scope:  { type:   posts    }
+    values: { layout: post     }
+  - scope:  { type:   tag      }
+    values: { layout: listing  }
+  - scope:  { type:   category }
+    values: { layout: listing  }
 
-  # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
-  # span, block element options fall back to global
-  syntax_highlighter_opts:
-    # Rouge Options › https://github.com/jneen/rouge#full-options
-    css_class: 'highlight'
+sass:
+  sass_dir: _assets/css
+
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+
+paginate: 10
