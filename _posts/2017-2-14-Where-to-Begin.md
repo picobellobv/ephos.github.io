@@ -5,6 +5,8 @@ category: powershell
 tags: [learning, powershell]
 ---
 
+## Where to Start?
+
 The age old question... *"Where do I start?"*
 
 I started learning PowerShell in 2013 mostly by my own stubbornness and loathing of manual tasks.  I had a task where I needed to make sure a setting was set on hundreds of servers, and knew that doing it by hand would take me multiple days of clicking and typing through screens.  It was at that moment I first opened the PowerShell ISE and struggled for about a whole day and a half furiously writing, Googling, and testing the most basic and crude plain old .ps1 file I ever wrote.  I remember the first time I ran it when it was finished, I watched as this thing **I** built turned literal days of work into minutes.  I felt so accomplished that I had created something to do work for me.  From that day on every task I needed to do I approached with a completely new mindset.

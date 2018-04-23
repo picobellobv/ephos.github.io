@@ -2,10 +2,10 @@
 title: Did you know? "#" Console Searching
 teaser: When PSReadline isn't an option, find previously run commands with this alternative method!
 category: didyouknow
-tags: [didyouknow, powershell]
+tags: [didyouknow, powershell, console]
 ---
 
-### Did you know - PowerShell Console, "#" Console Searching!
+## Did You Know? - PowerShell Console, "#" Console Searching!
 
 Here's one my colleague recently discovered that has changed my (PowerShell) life.  History is a great thing, it enables us to be lazy and/or save time.  How many times have you been at the console doing some kind of interactive work and said *"Ugh what was the command I used 30 minutes ago that I'd only need to change a few things to reuse..."*?  I know for me it'd happen a lot, especially doing a lot of PowerCLI work.  I had some custom aliases for making Get-History and Invoke-History easier to access but little did I know there was an even easier way.
 

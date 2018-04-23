@@ -5,6 +5,8 @@ category: powershell
 tags: [powershell]
 ---
 
+## "-OutVariable" More Tricky Than You Thought
+
 In PowerShell we are provided common parameters.  A common parameter is a parameter that is available on every Cmdlet or also on any advanced function that is decorated with the `[CmdletBinding()]` attribute before the param block.
 
 One of my favorite common parameters *was* -OutVariable.  It allowed me to type a really long command out and then at the end if I decided I wanted to store it in a variable I could just append the -OutVariable or -ov parameter and then the variable name.

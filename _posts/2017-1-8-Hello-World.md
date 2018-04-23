@@ -5,6 +5,8 @@ category: misc
 tags: [blog, misc]
 ---
 
+## PowerShell Intro Delivered by the Spooky Skeleton
+
 I wanted to finally do something with this idea to start keeping some of my findings in a place where I or others could find them easily.
 
 ![Welcome]({{ site.baseurl }}/images/2017-1-8-Hello-World/HelloWorld1.PNG)

@@ -2,10 +2,10 @@
 title: Did you know? Console, Alt+Enter
 teaser: The console in Windows can be lacking at times.  Learn to full screen it with an easy key combo!
 category: didyouknow
-tags: [didyouknow, powershell]
+tags: [didyouknow, powershell, console]
 ---
 
-### Did you know - PowerShell Console, Alt+Enter!
+## Did You Know? - PowerShell Console, Alt+Enter!
 
 Sometimes stumbling on things is a great feeling.  Today I found something out about the PowerShell console on Windows 10 that I probably read at some point but completely forgot about.  I was running a script and by accident must have hit F11 which completely full screened my PowerShell console.  I know, I know, F11 is the universal Windows shortcut for full screen.  So I did some testing, apparently F11 will only full screen the PowerShell console when a script is actively running, but you can however use Alt+Enter to get this to happen whenever you want.
 

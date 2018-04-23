@@ -5,8 +5,7 @@ category: powershell
 tags: [editor, powershell]
 ---
 
-
-
+## Louie, I Think This is the Beginning of a Beautiful Debugging Session.
 
 We all know that conditional love is a bad thing, sometimes conditional contracts depending on which side you're on.  There is however *one* conditional thing we are going to talk about today that is great...  Conditional breakpoints in Visual Studio Code debugging!
 
