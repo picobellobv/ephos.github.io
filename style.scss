@@ -613,6 +613,8 @@
 
 .post {
   @extend %content--width-limit;
+  // Added to override width for post(s)
+  //max-width: 60rem;
 }
 
 .post__head {
@@ -707,6 +709,8 @@
   }
 }
 
+// Look for element with class of .post.  Look at decendants with '>' that are p elements.  Then look for children that are 'img' elements.
+//.post > p img { margin-left: auto !important;     margin-right: auto !important; display: flex }
 
 /* # 7) Trumps
  ========================================= */
