@@ -28,7 +28,8 @@ Follow Along Requirements:
         - [The "content" Section](#the-content-section)
     - [Custom Plaster Templates](#custom-plaster-templates)
     - [Non PowerShell Projects](#non-powershell-projects)
-    - [Miscellaneous Info, Links, and References](#miscellaneous-info-links-and-references)
+    - [Plaster Templates in the Wild](#plaster-templates-in-the-wild)
+    - [Conclusion](#conclusion)
 
 <!-- /TOC -->
 
@@ -127,7 +128,7 @@ The second question is _"Enter the version number of the module (0.0.1)"_.  The 
 
 The third prompt is actually a choice _Select an editor for editor integration (or None):_.  Here we're presented 2 options, we can hit **?** to find out more about the two options.  Ah, so we can select **N** for no editor integration, or select **C** for VSCode editor integration.  I love VSCode so we'll definitely take option **C**!
 
-![Plaster2]({{ site.baseurl }}/images/2018-4-25-Lets-Get-Plastered/Plaster1.gif)
+![Plaster2]({{ site.baseurl }}/images/2018-4-28-Lets-Get-Plastered/Plaster1.gif)
 
 We have a brand spanking new module on the desktop now, ready for us to start writing functions in.  One thing that might have been easy to miss was the last 'Verify'.  This ensured we had minimum version of Pester 4.0.3 installed.
 
@@ -141,7 +142,7 @@ code "$env:USERPROFILE\Desktop\PSEphos\"
 
 Let's checkout our new module.
 
-![Plaster2]({{ site.baseurl }}/images/2018-4-25-Lets-Get-Plastered/Plaster2.gif)
+![Plaster2]({{ site.baseurl }}/images/2018-4-28-Lets-Get-Plastered/Plaster2.gif)
 
 Would you look at that, a module built for us, ready to go for us to start coding in.  We hardly had to lift a finger.  You'll see that...
 
@@ -155,6 +156,12 @@ _If you'd like to believe this is just pure magic please stop reading here._
 ### The Plaster Manifest
 
 Okay folks, lets talk turkey, Plaster manifest turkey.  This file (**plasterManifest.xml**) single handedly is what makes all of what you saw possible.  It's also responsible for making Plaster templates so much more customizable!
+
+All of what I am about to cover can also be found in the help!
+
+```powershell
+Get-Help -Name about_Plaster_CreatingAManifest
+```
 
 You may remember we had two built-in Plaster templates which shipped with the module.  Let's pry our "New PowerShell Manifest Module" Plaster template open and check out the guts of it.
 
@@ -316,7 +323,7 @@ $ModuleManifestName = 'PSEphos.psd1'
 Remember...
 >Parameter values can be referenced inside the Plaster manifest, **as well as in the files you will scaffold** with the `$PLASTER_PARAM_ParameterName` syntax.
 
-![Plaster4]({{ site.baseurl }}/images/2018-4-25-Lets-Get-Plastered/Plaster4.gif)
+![Plaster4]({{ site.baseurl }}/images/2018-4-28-Lets-Get-Plastered/Plaster4.gif)
 
 Mind blown, right?  I hope...
 
@@ -380,12 +387,163 @@ All we have is the plasterManifest.xml, and although its there it's a little bar
 </plasterManifest>
 ```
 
-Now, you could copy chunks out of existing Plaster manifest files, or you could copy examples out of the "about_Plaster_CreatingAManifest" help file.  Or you can use some [Plaster XML VS Code snippets][Snips] I made.  You'll need to copy them into your _'$env:USERPROFILE\AppData\Roaming\Code\User\snippets'_ directory.
+Now, you could copy chunks out of existing Plaster manifest files, or you could copy examples out of the "about_Plaster_CreatingAManifest" help file.  Or you can use some [Plaster XML VS Code snippets][Snips] I made.  You'll need to copy them into your _'$env:USERPROFILE\AppData\Roaming\Code\User\snippets'_ directory, this requires VS Code.
+
+![Plaster5]({{ site.baseurl }}/images/2018-4-28-Lets-Get-Plastered/Plaster5.gif)
+
+Wow.  Just wow.  Look, that pesky XML is practically written for you, just tab your way through it and fill in the blanks!  I told you I would make it easy for you.  With this in place we can whip up a custom module template in no time at all!
+
+Now that I've showed you an easy way to whip up a template without writing too much XML, we're going to take a trick out of the old cooking show books and skip the to part where the finished meal comes out of the oven!
+
+I like my modules with dot source-able public and private functions, and a module root for tests and build files that don't get shipped with the module itself when the my CICD pipeline builds it.  This is the structure that jives for me.
+
+```text
+ModuleProjectRoot
+│   ReadMe.md
+|   .gitignore
+|   LICENSE
+|   ChangeLog.md
+|   <CI Build Files for psake/psdeploy/appveyor/etc>
+├───.vscode
+│       settings.json
+│       tasks.json
+├───src
+│   │   PSModule.psd1
+│   │   PSModule.psm1
+│   ├───Classes
+│   │       PSModule.cs
+│   ├───en-US
+│   │       about_PSModule.help.txt
+│   └───Functions
+│       ├───Private
+│       │       _PrivateFunction.ps1
+│       └───Public
+│               Public-Function.ps1
+└───tests
+        Manifest.Tests.ps1
+        PSModule.Tests.ps1
+```
+
+We won't go completely crazy with this as I'd like to provide you a base to get started, but we'll at least do a subset of this so you can get going.
+
+Using my Plaster "CustomModule" template which can be found **[here][PlasterCustomModule]** we'll go ahead and scaffold a more robust module!
+
+We're going to create a module called "PSSuperModule".
+
+![Plaster6]({{ site.baseurl }}/images/2018-4-28-Lets-Get-Plastered/Plaster6.gif)
+
+Just like that, we have a module and can start writing up our public and private functions!
 
 ### Non PowerShell Projects
 
-### Miscellaneous Info, Links, and References
+"Can you scaffold non PowerShell projects?".  Yes!
 
+Just as a very simple proof of concept, I have a little [Go][go] application example [here][PlasterGoApp].
+
+If you look at the code you'll notice that it _can_ be a little wonky doing the token replacement in files that won't end up as a PowerShell file but it is _technically_ doable.
+
+```powershell
+<%
+if ($PLASTER_PARAM_MainPackage -eq 'Main')
+{
+@"
+package main
+import (
+"@
+}
+else
+{
+@"
+package $PLASTER_PARAM_ProjectName
+import (
+"@
+}
+
+foreach ($import in $PLASTER_PARAM_Imports)
+{
+@"
+	"$($import)"`r
+"@
+}
+
+@"
+)
+func main() {
+"@
+
+if ($PLASTER_PARAM_Imports -contains 'fmt')
+{
+@"
+    fmt.Println("Hello, Demo!")
+"@
+}
+
+if ($PLASTER_PARAM_Imports -contains 'os')
+{
+@"
+	h, err := os.Hostname()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(h)
+"@
+}
+
+if ($PLASTER_PARAM_Imports -contains 'time')
+{
+@"
+	t := time.Now()
+	fmt.Println(t)
+"@
+}
+
+@"
+}
+"@
+%>
+```
+
+This is a little bit rough around the edges but really made to let you see that Plaster is capable of really scaffolding whatever you need.  You may have caught that we were doing this the the [C# file][csharp] in our CustomModule in the last section as well!
+
+### Plaster Templates in the Wild
+
+When you run `Get-PlasterTemplate` you might notice that there is a parameter called `-IncludeInstalledModules`.  It wasn't until March I found a PowerShell module which shipped with a Plaster template!  [Michael Lombardi's][barbariankb] [Documentarian][Documentarian] includes a Plaster template and uses it to generate documentation for PowerShell modules.
+
+```powershell
+Install-Module -Name Documentarian -Scope CurrentUser
+Get-PlasterTemplate -IncludeInstalledModules
+```
+
+_Console Output Below_
+
+```text
+PS> Get-PlasterTemplate -IncludeInstalledModules
+
+Title        : AddPSScriptAnalyzerSettings
+Author       : Plaster project
+Version      : 1.0.0
+Description  : Add a PowerShell Script Analyzer settings file to the root of your workspace.
+Tags         : {PSScriptAnalyzer, settings}
+TemplatePath : C:\Users\ephos\Documents\PowerShell\Modules\Plaster\1.1.3\Templates\AddPSScriptAnalyzerSettings
+
+Title        : New PowerShell Manifest Module
+Author       : Plaster
+Version      : 1.1.0
+Description  : Creates files for a simple, non-shared PowerShell script module.
+Tags         : {Module, ScriptModule, ModuleManifest}
+TemplatePath : C:\Users\ephos\Documents\PowerShell\Modules\Plaster\1.1.3\Templates\NewPowerShellScriptModule
+
+Title        : Documentarian
+Author       :
+Version      : 0.2.0
+Description  : Scaffolds the files required for GitBook Documentation.
+Tags         : Documentation
+TemplatePath : C:\Users\ephos\Documents\PowerShell\Modules\documentarian\0.10.1\GitBook
+```
+
+### Conclusion
+
+Well thats all folks!  I hope you learned something, at the very least you can checkout my [Github][PlasterGithub] project for the presentation I did (and included templates)!  Feel free to hit me up on [Twitter][twitter] if you want to talk some Plaster or PowerShell!
 
 [^1]:
     Yes I run this way at home as well.  Why gamble on a re-install of the OS when I can just run as a non administrative user and just escalate to my admin account when needed?
@@ -407,3 +565,11 @@ Now, you could copy chunks out of existing Plaster manifest files, or you could 
 [VSCode]: https://code.visualstudio.com/
 [Schema]: https://github.com/PowerShell/Plaster/blob/master/src/Schema/PlasterManifest-v1.xsd
 [Snips]: https://github.com/ephos/PSSummit2018-Plaster/blob/master/plaster-xml.code-snippets
+[PlasterCustomModule]: https://github.com/ephos/PSSummit2018-Plaster/tree/master/5_Custom_Templates_Adv/plaster-templates/CustomModule
+[go]: https://golang.org/
+[PlasterGoApp]: https://github.com/ephos/PSSummit2018-Plaster/tree/master/6_Non_PS_Project/plaster-templates/NewGoLangProject
+[csharp]: https://github.com/ephos/PSSummit2018-Plaster/blob/master/5_Custom_Templates_Adv/plaster-templates/CustomModule/template.cs.ps1
+[barbariankb]: https://twitter.com/barbariankb
+[Documentarian]: https://gitlab.com/documentarian/documentarian
+[twitter]: https://twitter.com/rjpleau
+[PlasterGithub]: https://github.com/ephos/PSSummit2018-Plaster
