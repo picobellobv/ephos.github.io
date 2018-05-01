@@ -4,6 +4,8 @@ teaser: Have you often sat staring off at all the other languages having fun sca
 category: powershell
 tags: [powershell]
 reddit_post: https://www.reddit.com/r/PowerShell/comments/8g5fsk/blog_update_lets_get_plastered/
+featured_comments:
+  - url: 'https://www.reddit.com/r/PowerShell/comments/8g5fsk/blog_update_lets_get_plastered/dy9imtw/'
 ---
 
 ## Lets Get Plastered!
