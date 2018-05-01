@@ -3,6 +3,7 @@ title: Let's Get Plastered!
 teaser: Have you often sat staring off at all the other languages having fun scaffolding their projects with tools like Yeoman, dotnet CLI, or Visual Studio wishing you had something that cool in PowerShell? Wait no longer!
 category: powershell
 tags: [powershell]
+reddit_post: https://www.reddit.com/r/PowerShell/comments/8g5fsk/blog_update_lets_get_plastered/
 ---
 
 ## Lets Get Plastered!
