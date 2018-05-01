@@ -36,19 +36,19 @@ Follow Along Requirements:
 
 ### What's a Plaster?
 
-Plaster is a PowerShell module which allows you to scaffold other projects using the a **Plaster template**.  A Plaster template is driven by a **Plaster manifest** and when invoked guides you through a series of options to build out a project.  This is particularly useful if you are needing to setup a PowerShell module project but spending a lot of time setting up the directory structure, manifest files, pester test files, etc.
+Plaster is a PowerShell module which allows you to scaffold other projects using a **Plaster template**.  A Plaster template is driven by a **Plaster manifest** and when invoked guides you through a series of options to build out a project.  This is particularly useful if you are needing to setup a PowerShell module project but spending a lot of time setting up the directory structure, manifest files, pester test files, etc.
 
 ### Install the Dang Module
 
 Okay folks, this might be review of basic PowerShellGet stuff but if it's not this will get you plastering with Plaster, and trust me it's a lot more fun than that plastering they do on _This Old House_!
 
-We're going to go ahead and install the module from the [PowerShell Gallery][PowerShellGallery]!  Of course we'll install with the "Current User" scope to install to our user profile modules directory, because we all have two accounts _(standard and admin)_ and never as Administrator all the time right?![^1]
+We're going to go ahead and install the module from the [PowerShell Gallery][PowerShellGallery]!  Of course we'll install with the "Current User" scope to install to our user profile modules directory, because we all have two accounts, _(standard and admin)_ and never operate as Administrator all the time, right?![^1]
 
 ```powershell
 Find-Module -Name Plaster | Install-Module -Scope CurrentUser
 ```
 
-Plaster is also compatible with PowerShell Core, which cool cats like myself like to use these days.  It also works with Windows PowerShell 5.x so don't sweat the version of PowerShell you're running!
+Plaster is also compatible with PowerShell Core, which cool cats like myself like to use these days.  It also works with Windows PowerShell 5.x, so don't sweat the version of PowerShell you're running!
 
 With it installed (*at the time of writing this the current version is 1.1.3*) let's take a look at what this module ships with!
 
@@ -109,7 +109,7 @@ To do this we'll utilize the included Plaster template "New PowerShell Manifest 
 
 We're also going to need to tell Plaster where to create this new PowerShell module, a "destination path" if you will.  It just so happens that there is a parameter called `-DestinationPath` for this.  To keep things relatively simple the desktop will work just fine for this demo.
 
-Let's store these in variables so our actual calling of Plaster is a bit cleaner and the line of code won't reach the moon and back (yes you can also splat this if that strikes your fancy, I'm not going to cover splatting here though).
+Let's store these in variables so our actual calling of Plaster is a bit cleaner and the line of code won't reach the moon and back (yes you can also splat this, if that strikes your fancy, I'm not going to cover splatting here though).
 
 ```powershell
 # The path to the Plaster template that we're invoking.
@@ -143,7 +143,7 @@ Get-ChildItem -Path "$env:USERPROFILE\Desktop\PSEphos\"
 code "$env:USERPROFILE\Desktop\PSEphos\"
 ```
 
-Let's checkout our new module.
+Let's check out our new module.
 
 ![Plaster2]({{ site.baseurl }}/images/2018-4-30-Lets-Get-Plastered/Plaster2.gif)
 
@@ -152,13 +152,13 @@ Would you look at that, a module built for us, ready to go for us to start codin
 1. It created Pester tests for us, and even populated the `$ModuleManifestName = 'PSEphos.psd1'` variable with our module manifest file.
 2. It created a module manifest file as well, complete with the `RootModule`, `Version` _(the version 1.0.0 we specified)_, `GUID`, `Author`, etc.
 
-This is cool, but this module is also a little too basic for my needs.  Let's create a more robust one.  First however, let's take a look at the inner workings of what made this possible, the 👐**Plaster Manifest**👐.
+This is cool, but this module is also a little too basic for my needs.  Let's create a more robust one.  First, however, let's take a look at the inner workings of what made this possible, the 👐**Plaster Manifest**👐.
 
 _If you'd like to believe this is just pure magic please stop reading here._
 
 ### The Plaster Manifest
 
-Okay folks, let's talk turkey, Plaster manifest turkey.  This file (**plasterManifest.xml**) single handedly is what makes all of what you saw possible.  It's also responsible for making Plaster templates so much more customizable!
+Okay folks, let's talk turkey. By this I mean Plaster manifest turkey.  This file (**plasterManifest.xml**) single handedly is what makes all of what you saw possible.  It's also responsible for making Plaster templates so much more customizable!
 
 All of what I am about to cover can also be found in the help!
 
@@ -175,7 +175,7 @@ $template = Get-PlasterTemplate | Where-Object {$_.Tags -contains 'Module'} | Se
 code $template.TemplatePath
 ```
 
-Just for reference the layout of the Plaster templates is very flexible, the module one we're looking at is the following.
+Just for reference, the layout of the Plaster templates is very flexible, the module one we're looking at is the following.
 
 ```text
 NewPowerShellScriptModule     - This is the root of the Plaster template
@@ -213,7 +213,7 @@ Let's look at some of the sections from the plasterManifest.xml of the template 
 
 #### The "metadata" Section
 
-If we look at the top of the file you'll notice the metadata which is some of the data we see when we run `Get-PlasterTemplate`.  This is pretty self explanatory.
+If we look at the top of the file you'll notice the metadata, which is some of the data we see when we run `Get-PlasterTemplate`.  This is pretty self explanatory.
 
 ```xml
 <metadata>
@@ -229,7 +229,7 @@ If we look at the top of the file you'll notice the metadata which is some of th
 
 #### The "parameters" Section
 
-The next section is parameters, if you'll recall we were prompted a few questions.  Let's investigate the parameters, since there were only 3 we'll look at all of them.
+The next section is parameters.  If you recall we were prompted a few questions.  Let's investigate the parameters.  Since there were only three we'll look at all of them.
 
 ```xml
 <parameter name='ModuleName' type='text' prompt='Enter the name of the module'/>
@@ -242,9 +242,9 @@ The next section is parameters, if you'll recall we were prompted a few question
 </parameter>
 ```
 
-The first two parameters are very simple, they are just text and store the inputs for use later in the content section.  You can also see that 'Version' has a default set to 0.0.1.
+The first two parameters are very simple; they are just strings and store the inputs for use later in the content section.  You can also see within version that you can define a default value.  In this example the default is set to "0.0.1".
 
-As for the 'Editor' choice parameter, it had a default option of [C] for VS Code.  You can see that defined above with `default='1'` _(index starts at 0, because choice 0 is "None" choice 1 is "Visual Studio Code")_.  You might also notice `&amp;`, this is what was making the choices for the options the letters _([N] and [C])_.  Since the next character after the `&amp;` is a letter, that makes that letter the selector for the choice.  We also utilized the help and you can see the help messages defined with the options.
+As for the 'Editor' choice parameter, it had a default option of [C] for VS Code.  You can see that defined above with `default='1'` _(index starts at 0, because choice 0 is "None," choice 1 is "Visual Studio Code")_.  You might also notice `&amp;`, this is what was making the choices for the options the letters _([N] and [C])_.  Since the next character after the `&amp;` is a letter, that makes that letter the selector for the choice.  We also utilized the help and you can see the help messages defined with the options.
 
 #### Plaster Variables
 
@@ -256,7 +256,7 @@ A minute ago I said...
 
 Parameter values can be referenced inside the Plaster manifest, as well as in the files you will scaffold with the `$PLASTER_PARAM_ParameterName` syntax.  This means that within our plasterManifest.xml file (*and even outside of it*), we can reference the inputs to the choices, in the content section of the file as well as in the files we are scaffolding.
 
-An example of this would be, when we answered the "ModuleName" parameter question earlier on, we could actually reference that with `$PLASTER_PARAM_ModuleName` and it's contained value would be _PSEphos_.
+An example of this would be, when we answered the "ModuleName" parameter question earlier on, we could actually reference that with `$PLASTER_PARAM_ModuleName` and its contained value would be _PSEphos_.
 
 If that didn't totally blow your mind, Plaster also ships with a bunch of built-in variables you can use.
 
@@ -270,7 +270,7 @@ If that didn't totally blow your mind, Plaster also ships with a bunch of built-
 
 With that business out of the way, and now that we know how user is prompted for information and how that information is stored, we can finally look at the content section where a lot of it is used.
 
-The content section, which utilizes information passed in from the parameter section is responsible for the file layout/contents and structure of the module.
+The content section, which utilizes information passed in from the parameter section, is responsible for the file layout/contents and structure of the module.
 It can also be used for informational messages or validating module dependencies (like Pester).
 
 Within content the big players here are the following.
@@ -284,7 +284,7 @@ Within content the big players here are the following.
 - requireModule
   - *This will check to ensure the specified module is installed.*
 
-Remember, parameters can be referenced.  We can clearly see that in the *newModuleManifest* section of *content*.  You can see the parameters referenced as variables here.  You'll need to use `${}` (dollar sign, curly brace) sub-expression syntax if referencing it within other text, otherwise if you just need the value you can reference it with a dollar sign.
+Remember, parameters can be referenced.  We can clearly see that in the *newModuleManifest* section of *content*.  You can see the parameters referenced as variables here.  You'll need to use `${}` (dollar sign, curly brace) syntax if referencing it within other text, otherwise if you just need the value you can reference it as you would a normal variable.  This shouldn't be confused with sub-expression syntax, although it does feel similar.  This syntax as far as I know is specific to Plaster.
 
 ```xml
 <newModuleManifest destination='${PLASTER_PARAM_ModuleName}.psd1'
@@ -375,7 +375,7 @@ So far so good, it just created the plasterManifest.xml for us.  We can open up 
 code $plasterTemplatePath
 ```
 
-All we have is the plasterManifest.xml, and although it's there it's a little bare.  It did fill out the metadata and generate us a parameter and content section.
+All we have is the plasterManifest.xml and, although it's there, it's a little bare.  It did fill out the metadata and generate us a parameter and content section.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
