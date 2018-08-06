@@ -1,8 +1,8 @@
 ---
-title: OnRamp
+title: Summit OnRamp
 teaser: If you planning to attend the PowerShell + DevOps Global Summit 2019, this message is for you!
-category: powershell
-tags: [powershell, summit, community]
+category: misc
+tags: [summit, community]
 published : true
 reddit_post:
 featured_comments:
@@ -44,28 +44,27 @@ I am asking any PowerShell + DevOps Summit alumni to volunteer to be a potential
 
 I know this is early, but April 2019 will be here before you know it!  Please contact me directly _(see methods below)_ if you are planning to attend the 2019 Summit and are interested.
 
-[Twitter][Twitter]
-[Reddit][Reddit]
-[Email][Email]
+* [Twitter][Twitter] - @rjpleau
+
+* [Reddit][Reddit] - /u/ephos
+
+* Email - rjpleau@gmail.com
 
 ### Additional Information
 
-You can find the [OnRamp brochure][OnRampBrocure] here.
+You can find the [OnRamp brochure][OnRampBrochure] here.
 
 If you also didn't know, there is an [OnRamp Scholarship][OnRampScholarship] as well.  You can also help fund this by purchasing ["The PowerShell Conference Book"][book]!  A community created content packed book, 100% of the royalties of this book go towards funding the scholarship!
 
 You can also support the scholarship by using smile.amazon.com and selecting the DevOps Collective as your charity of choice.
 
-A direction donation can me made via [PayPal][paypal] as well to support the OnRamp scholarship directly as well.
+A direction donation can me made via [PayPal][PayPal] as well to support the OnRamp scholarship directly as well.
 
 [OnRamp]:https://powershell.org/summit/summit-onramp/
 [powershellorgforum]:https://powershell.org/forums/forum/powershell-summit/
-
 [Twitter]:https://twitter.com/rjpleau
 [Reddit]:https://www.reddit.com/user/ephos
-[Email]:rj.pleau@gmail.com
-
-[OnRampBrocure]:https://indd.adobe.com/view/7c87735a-8914-4536-b668-857242085785
+[OnRampBrochure]:https://indd.adobe.com/view/7c87735a-8914-4536-b668-857242085785
 [OnRampScholarship]:https://powershell.org/summit/summit-onramp/onramp-scholarship/
 [Book]:https://leanpub.com/powershell-conference-book
-[paypal]:http://bit.ly/SummitOnRamp
+[PayPal]:http://bit.ly/SummitOnRamp

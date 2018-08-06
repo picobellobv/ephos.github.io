@@ -3,12 +3,17 @@ layout: listing
 title: About
 ---
 
-### About Me
+## About Me
 
-Hi, I'm Rob.  When I started this I wasn't sure what I really wanted it to be.  As time has passed I have decided that I just hope it helps people.  From the silly tidbits of info that save you time, to the weird quirks you may run into.  My hope is that someone reading somewhere either learns something new, has an "ah ha!" moment, or hopefully just reads something that makes them think.  I'll never claim to know everything, and hopefully I'll learn more from the community and even ***you*** by having this blog!
+Hi I'm Rob!  I am a PowerShell enthusiast, [blogger](https://ephos.github.io/), chapter author in ["The PowerShell Conference Book"](https://leanpub.com/powershell-conference-book), [TechSnips contributor](https://www.techsnips.io/en/star/robert-pleau), and PowerShell + DevOps Summit 2018 Speaker.
 
-I love anything related to coding and automation.  Nothing is more enjoyable than watching the things you've built run and come to life from the big projects to even the small one off one liners.  I started with PowerShell, and its still my go to.  I have been known to dabble in [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) and [Go](https://golang.org/) as a secondary but really enjoy all languages.
+I have had a mission of trying to give back over the last two years.  I have been working to do this both internally in my organization but more broadly in the PowerShell community as a whole.  Speaking and blogging have been my primary platforms to do this and it has been a blast.
+
+I love anything related to coding and automation.  Nothing is more enjoyable than watching the things you've built run and come to life from the big projects to even the small one off one liners.  PowerShell is my bread and butter, and its still my go to.  I also have a heavy interest in C#, Go, and Python!
+
+I hope that you learn something by reading this blog, however I also hope I learn something from *you* and the community by doing this!
 
 ### Contact Me
 
 [rj.pleau@gmail.com](mailto:rj.pleau@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/rob-pleau-39075647/)
