@@ -14,6 +14,19 @@ If you haven't already heard about [PowerShell Conference Book][PowerShell Confe
 
 ![PSConfBook]({{ site.baseurl }}/images/2018-7-23-The-PowerShell-Conf-Book\PSConfBook.jpg)
 
+### Table of Contents
+
+<!-- TOC -->
+
+- [The PowerShell Conference Book](#the-powershell-conference-book)
+    - [Table of Contents](#table-of-contents)
+    - [The Book](#the-book)
+    - [OnRamp Scholarship Program](#onramp-scholarship-program)
+    - [Thank You](#thank-you)
+                - [👍 _Thank you to Mike Robbins and Mike Kanakos for having all the links below already handy in their blog posts at the time of writing this!_](#%F0%9F%91%8D-thank-you-to-mike-robbins-and-mike-kanakos-for-having-all-the-links-below-already-handy-in-their-blog-posts-at-the-time-of-writing-this)
+
+<!-- /TOC -->
+
 ### The Book
 
 The PowerShell Conference Book is intended to be a PowerShell conference contained in a book.  Over 30 PowerShell industry professionals have joined up to each write an individual chapter on a conference level PowerShell topic.  I was extremely excited to participate in authoring a chapter myself when [Mike Robbins][Mike Robbins] contacted me with the opportunity.

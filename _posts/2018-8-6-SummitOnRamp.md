@@ -8,13 +8,13 @@ reddit_post:
 featured_comments:
 ---
 
-## Be a Buddy
+## OnRamp
 
 ### Table of Contents
 
 <!-- TOC -->
 
-- [Be a Buddy](#be-a-buddy)
+- [OnRamp](#onramp)
     - [Table of Contents](#table-of-contents)
     - [What is OnRamp?](#what-is-onramp)
     - [Call for Summit Buddies!](#call-for-summit-buddies)
