@@ -3,6 +3,7 @@ title: Welcome!
 teaser: The start of something new!
 category: misc
 tags: [blog, misc]
+published : true
 ---
 
 ## PowerShell Intro Delivered by the Spooky Skeleton

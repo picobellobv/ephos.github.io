@@ -3,6 +3,7 @@ title: VSCode Debugging - Conditional Breakpoints
 teaser: Learn how to use conditional breakpoints in VSCode.  The better you debug, the faster you solve problems!
 category: powershell
 tags: [editor, powershell]
+published : true
 ---
 
 ## Louie, I Think This is the Beginning of a Beautiful Debugging Session.

@@ -1,8 +1,9 @@
 ---
 title: Did you know? "#" Console Searching
 teaser: When PSReadline isn't an option, find previously run commands with this alternative method!
-category: didyouknow
+category: powershell
 tags: [didyouknow, powershell, console]
+published : true
 ---
 
 ## Did You Know? - PowerShell Console, "#" Console Searching!

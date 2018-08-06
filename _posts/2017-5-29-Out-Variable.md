@@ -3,6 +3,7 @@ title: -OutVariable, A Cautionary Tale...
 teaser: -OutVariable, a useful common parameter, but maybe not as straight forward as you always thought!
 category: powershell
 tags: [powershell]
+published : true
 ---
 
 ## "-OutVariable" More Tricky Than You Thought

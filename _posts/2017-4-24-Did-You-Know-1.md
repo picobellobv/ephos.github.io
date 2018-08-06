@@ -1,8 +1,9 @@
 ---
 title: Did you know? Console, Alt+Enter
 teaser: The console in Windows can be lacking at times.  Learn to full screen it with an easy key combo!
-category: didyouknow
+category: powershell
 tags: [didyouknow, powershell, console]
+published : true
 ---
 
 ## Did You Know? - PowerShell Console, Alt+Enter!

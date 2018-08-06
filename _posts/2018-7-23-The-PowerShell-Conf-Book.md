@@ -2,7 +2,8 @@
 title: The PowerShell Conference Book
 teaser: A PowerShell conference in a book!
 category: powershell
-tags: [powershell]
+tags: [powershell, community]
+published : true
 reddit_post:
 featured_comments:
 ---

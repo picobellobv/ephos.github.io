@@ -2,7 +2,8 @@
 title: Let's Get Plastered!
 teaser: Have you often sat staring off at all the other languages having fun scaffolding their projects with tools like Yeoman, dotnet CLI, or Visual Studio wishing you had something that cool in PowerShell? Wait no longer!
 category: powershell
-tags: [powershell]
+tags: [powershell, summit]
+published : true
 reddit_post: https://www.reddit.com/r/PowerShell/comments/8g5fsk/blog_update_lets_get_plastered/
 featured_comments:
   - url: 'https://www.reddit.com/r/PowerShell/comments/8g5fsk/blog_update_lets_get_plastered/dy9imtw/'
@@ -21,19 +22,19 @@ Follow Along Requirements:
 <!-- TOC -->
 
 - [Lets Get Plastered!](#lets-get-plastered)
-    - [Table of Contents](#table-of-contents)
-    - [What's a Plaster?](#whats-a-plaster)
-    - [Install the Dang Module](#install-the-dang-module)
-    - [Use the Built In Plaster Template](#use-the-built-in-plaster-template)
-    - [The Plaster Manifest](#the-plaster-manifest)
-        - [The "metadata" Section](#the-metadata-section)
-        - [The "parameters" Section](#the-parameters-section)
-        - [Plaster Variables](#plaster-variables)
-        - [The "content" Section](#the-content-section)
-    - [Custom Plaster Templates](#custom-plaster-templates)
-    - [Non PowerShell Projects](#non-powershell-projects)
-    - [Plaster Templates in the Wild](#plaster-templates-in-the-wild)
-    - [Conclusion](#conclusion)
+  - [Table of Contents](#table-of-contents)
+  - [What's a Plaster?](#whats-a-plaster)
+  - [Install the Dang Module](#install-the-dang-module)
+  - [Use the Built In Plaster Template](#use-the-built-in-plaster-template)
+  - [The Plaster Manifest](#the-plaster-manifest)
+    - [The "metadata" Section](#the-%22metadata%22-section)
+    - [The "parameters" Section](#the-%22parameters%22-section)
+    - [Plaster Variables](#plaster-variables)
+    - [The "content" Section](#the-%22content%22-section)
+  - [Custom Plaster Templates](#custom-plaster-templates)
+  - [Non PowerShell Projects](#non-powershell-projects)
+  - [Plaster Templates in the Wild](#plaster-templates-in-the-wild)
+  - [Conclusion](#conclusion)
 
 <!-- /TOC -->
 

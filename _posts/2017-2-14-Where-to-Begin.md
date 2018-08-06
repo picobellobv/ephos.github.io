@@ -3,6 +3,7 @@ title: Where to Begin?
 teaser: You want to start learning PowerShell, but where do you even start?! Hint; Here!
 category: powershell
 tags: [learning, powershell]
+published : true
 ---
 
 ## Where to Start?
