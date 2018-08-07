@@ -3,7 +3,7 @@ title: Summit OnRamp
 teaser: If you planning to attend the PowerShell + DevOps Global Summit 2019, this message is for you!
 category: misc
 tags: [summit, community]
-published : false
+published : true
 reddit_post:
 featured_comments:
 ---
