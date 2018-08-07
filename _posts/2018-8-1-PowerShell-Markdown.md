@@ -1,10 +1,10 @@
 ---
 title: PowerShell and Markdown
 teaser: If you somehow made it to 2018 without using markdown yet, prepare to change that.  Markdown support comes to PowerShell!
-category: misc
+category: powershell
 tags: [powershell, console]
 published : true
-reddit_post:
+reddit_post: https://www.reddit.com/r/PowerShell/comments/93uun4/powershell_core_610_preview_4_and_markdown/
 featured_comments:
 ---
 

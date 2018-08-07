@@ -4,7 +4,7 @@ teaser: A PowerShell conference in a book!
 category: powershell
 tags: [powershell, community]
 published : true
-reddit_post:
+reddit_post: https://www.reddit.com/r/PowerShell/comments/91cny7/check_out_the_powershell_conference_book/
 featured_comments:
 ---
 
