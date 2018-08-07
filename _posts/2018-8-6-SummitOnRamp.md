@@ -32,10 +32,12 @@ But wait, there's more!  The OnRamp attendees will have the option of having a b
 
 We've all been there, learning PowerShell can sometimes have topics that don't sink in right away, or it takes you talking to multiple people to really get a handle on it.  Imagine how helpful it would be if you knew that you had a dedicated person, willing to spend a couple minutes with you, to really help you learn that one tough concept?
 
+Another OnRamp perk includes...
+
 - Someone to help introduce them to the PowerShell community at general sessions and/or events.
 
 Okay - Let's be honest, and Don has said this more times than I can count now over the few Summits I have attended.  **We're all introverts!** _(or at least most of us)_  Meeting people might not be the easiest sometimes.  OnRamp attendees will be able to lean on their buddy at the general sessions and meals to meet new folks faster.
-One thing I cannot stress enough, despite this perk, the PowerShell community overwhelmingly is the warmest, most friendly, helpful group of folks I have ever met.  Given this fact, I don't see any new attendee OnRamp or Summit track having this issue, however, OnRamp folks will have their buddy to help break the ice.
+One thing I cannot stress enough, despite this perk, the PowerShell community overwhelmingly is the warmest, most friendly, helpful group of folks I have ever met.  Given this fact, I don't see any new attendee in the OnRamp or Summit track having this issue.  However, OnRamp folks **will** have their buddy to help break the ice.
 
 ### Call for Summit Buddies!
 
