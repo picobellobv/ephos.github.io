@@ -3,7 +3,7 @@ title: Summit OnRamp
 teaser: If you planning to attend the PowerShell + DevOps Global Summit 2019, this message is for you!
 category: misc
 tags: [summit, community]
-published : false
+published : true
 reddit_post:
 featured_comments:
 ---
@@ -53,6 +53,8 @@ I know this is early, but April 2019 will be here before you know it!  Please co
 
 * Email - rjpleau@gmail.com
 
+* Message me on [powershell.org][powershellorg]
+
 ### Additional Information
 
 You can find the [OnRamp brochure][OnRampBrochure] here.
@@ -67,6 +69,7 @@ A direction donation can me made via [PayPal][PayPal] as well to support the OnR
 [powershellorgforum]:https://powershell.org/forums/forum/powershell-summit/
 [Twitter]:https://twitter.com/rjpleau
 [Reddit]:https://www.reddit.com/user/ephos
+[powershellorg]:https://powershell.org/
 [OnRampBrochure]:https://indd.adobe.com/view/7c87735a-8914-4536-b668-857242085785
 [OnRampScholarship]:https://powershell.org/summit/summit-onramp/onramp-scholarship/
 [Book]:https://leanpub.com/powershell-conference-book
