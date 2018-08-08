@@ -4,7 +4,7 @@ teaser: If you planning to attend the PowerShell + DevOps Global Summit 2019, th
 category: misc
 tags: [summit, community]
 published : true
-reddit_post:
+reddit_post: https://ephos.github.io/posts/2018-8-6-SummitOnRamp
 featured_comments:
 ---
 
