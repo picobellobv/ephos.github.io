@@ -4,7 +4,7 @@ teaser: Join me in install PowerShell Core on my favorite Linux distribution, Ar
 category: powershell
 tags: [powershell, linux, archlinux]
 published : true
-reddit_post:
+reddit_post: 'https://www.reddit.com/r/PowerShell/comments/9gug45/new_blog_post_combining_two_of_my_favorite_things/?'
 featured_comments:
 ---
 
