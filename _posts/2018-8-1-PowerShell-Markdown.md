@@ -21,19 +21,37 @@ If you read the [patch notes][patch] (_also written in markdown_) for PowerShell
 <!-- TOC -->
 
 - [PowerShell (Core) and Markdown](#powershell-core-and-markdown)
-    - [Table of Contents](#table-of-contents)
-    - [How to Use It](#how-to-use-it)
-    - [Viewing the Markdown](#viewing-the-markdown)
-        - [In the Console](#in-the-console)
-        - [In the Browser](#in-the-browser)
-    - [Changing the Console Colors](#changing-the-console-colors)
-    - [Quirks](#quirks)
-        - [Quirk 1 - Setting Persistance](#quirk-1---setting-persistance)
-        - [Quirk 2 - ConvertFrom-Markdown Console Text Issue](#quirk-2---convertfrom-markdown-console-text-issue)
-        - [Quirk 3 - General Usage](#quirk-3---general-usage)
-    - [Conclusion](#conclusion)
+  - [Table of Contents](#table-of-contents)
+  - [Update May 10th 2019](#update-may-10th-2019)
+  - [How to Use It](#how-to-use-it)
+  - [Viewing the Markdown](#viewing-the-markdown)
+    - [In the Console](#in-the-console)
+    - [In the Browser](#in-the-browser)
+  - [Changing the Console Colors](#changing-the-console-colors)
+  - [Quirks](#quirks)
+    - [Quirk 1 - Setting Persistance](#quirk-1---setting-persistance)
+    - [Quirk 2 - ConvertFrom-Markdown Console Text Issue](#quirk-2---convertfrom-markdown-console-text-issue)
+    - [Quirk 3 - General Usage](#quirk-3---general-usage)
+  - [Conclusion](#conclusion)
 
 <!-- /TOC -->
+
+### Update May 10th 2019
+
+I noticed this post got shared on **Y-Cominator Hacker News** and a **Github** issue, so if you are browsing in from there, quirks 2 and 3 from the original post should no longer be valid!
+
+I wanted to give this feature the justice it deserved.  When I originally wrote this, the feel of the commands felt very _-beta-ish-_.  I can safely say, the strange kinks seem to have been worked out!
+
+You can now do the following...
+
+```powershell
+# Render a markdown file by path
+Get-Item -Path ./README.md | Show-Markdown
+```
+
+Due to the changes in how the commands work they no longer can skew your console colors either, at least not in any way I have seen!
+
+I originally thought this was a novelty, I ended up finding myself using it in the real world the other day as I needed to quickly reference a markdown file and didn't want to open it outside of my current PowerShell prompt.  This is most definitely a welcome feature to PowerShell in my opinion, especially with the quirks ironed out!
 
 ### How to Use It
 
