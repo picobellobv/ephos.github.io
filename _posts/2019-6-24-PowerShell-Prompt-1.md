@@ -246,7 +246,7 @@ cd fonts
 
 The next step is to tell your terminal emulator application to use a PowerLine font.  On Windows you would go into the properties of the console and change the font.  When in the console right click and go to properties
 
-![windows-console-font]({{ site.baseurl }}/images/2019-6-24-PowerShell-Prompt/windows-console-font.png)
+![windows-console-font]({{ site.baseurl }}/images/2019-6-24-PowerShell-Prompt/windows-console-font.gif)
 
 To change the font for Termite we need to modify the Termite configuration file which should be at _~/.config/termite/config_.  Find the line that says **font** and update it to use one of the PowerLine fonts.  In my configuration I use **Noto Mono for Powerline 12**.  This sets the font to the Noto Mono for PowerLine at size 12.
 
