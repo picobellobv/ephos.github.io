@@ -2,7 +2,7 @@
 title: The (Mostly) Dependency Free PowerShell Prompt - Part 1
 teaser: In a world with True Color terminals and so many tools, why settle for less with your prompt?
 category: powershell
-tags: [powershell, linux]
+tags: [powershell, linux, console]
 published : true
 reddit_post:
 featured_comments:
@@ -42,7 +42,7 @@ I was inspired to finally get off my rump and make a new prompt to replace my ~4
 
 1. Finally incorporate the hotness of [PowerLine][powerline-fonts] fonts.
 2. Utilize ANSI escape sequences for some sweet colors.
-3. Remove my existing dependency on the [posh-git][posh-git] PowerShell module for git integration.
+3. Remove my existing dependency on the [posh-git][posh-git] PowerShell module for **Git** integration.
 
 Cool, we have goals to work on.  Let's go!
 
@@ -56,7 +56,7 @@ Here it is in a normal directory then changing over to Git repository directory.
 
 #### The Prompt
 
-The way I had setup my old prompt the prompt itself was broken into the following sections _(based on the gif above)_.
+The way I had setup my old prompt, the prompt itself was broken into the following sections _(based on the gif above)_.
 
 | Section | Value | Description |
 | --- | :---: | --- |
@@ -77,11 +77,11 @@ Let's talk a bit about the two things that will make the new prompt more excitin
 
 #### ANSI Escape Sequences
 
-When we talk about ANSI escape sequences, we need to talk about terminal emulators.  Different terminal emulator applications support different ranges of color.  Almost universally these days they will all support at a minimum 16 colors _(4 bit)_.  To really get a full range of colors we want a terminal emulator that supports "true color", or 24-bit, which gives us a range of **16,777,216** wow!  _<sub>If you want to read more about colors and computers or terminal emulators and their support, check out the footnotes.</sub>_[^2][^3]
+When we talk about ANSI escape sequences, we need to talk about terminal emulators.  Different terminal emulator applications support different ranges of color.  Almost universally these days they will all support at a minimum 16 colors _(4 bit)_.  To really get a full range of colors we want a terminal emulator that supports "true color", or 24-bit, which gives us a range of **16,777,216**, wow!  _<sub>If you want to read more about colors and computers or terminal emulators and their support, check out the footnotes.</sub>_[^2][^3]
 
 Urxvt, which I used previously doesn't easily support true color which is partly what prompted me to change over to Termite.  If following along just keep in mind that the terminal emulator you are using may not support true color!  _If you are reading this as a Windows user you can safely continue to use the Win32 Console that PowerShell has always used as it supports true color!_
 
-[ANSI escape sequences][ansi-escape-sequences-wiki] are a standard that most terminal emulators understand.  They can be used to move the cursor, change lines, initiate a beep.  All of what we will be doing to modify how text looks is with a CSI or _Control Sequence Initiator_.  This escape is created with '**ESC**' followed by '**[**' and will tell the terminal how to handle the text that comes after it. The codes can determine many things like color or how the text is rendered _(bold, flashing, etc.)_.
+[ANSI escape sequences][ansi-escape-sequences-wiki] are a standard that most terminal emulators understand.  They can be used to move the cursor, change lines, initiate a beep.  All of what we will be doing to modify how text looks is with a CSI, or _Control Sequence Initiator_.  This escape is created with '**ESC**' followed by '**[**' and will tell the terminal how to handle the text that comes after it. The codes can determine many things like color or how the text is rendered _(bold, flashing, etc.)_.
 
 I wrote briefly on these codes in my [markdown][ephos-markdown] post, let us take a closer look.
 
@@ -95,7 +95,7 @@ You can use either the decimal or hexadecimal codes with `[Char]`, using capital
 
 ![using-char-2]({{ site.baseurl }}/images/2019-6-24-PowerShell-Prompt/char-hex-dec.gif)
 
-Using the cheat sheet on Wikipedia, we can determine that 'ESC' is a hexadecimal of **0x1B** or decimal of **27**.  Now we know how to type an 'ESC' character.  We need to pair our 'ESC' with '[' for the ANSI CSI escape sequence.  Since we're going to be doing **A LOT** of ANSI escaping, let's put this into a variable.  We can then easily append the rest of the sequence including the '[' character[^4].
+Using the cheat sheet on Wikipedia, we can determine that 'ESC' is a hexadecimal of **0x1B** or decimal of **27**.  Now we know how to "type" an 'ESC' character.  We need to pair our 'ESC' with '[' for the ANSI CSI escape sequence.  Since we're going to be doing **A LOT** of ANSI escaping, let's put this into a variable.  We can then easily append the rest of the sequence including the '[' character[^4].
 
 ```powershell
 $charEsc = [Char](0x1b)
@@ -263,14 +263,14 @@ _"How would we use these arrows though?"_  They will be the transition character
 
 #### The Prompt
 
-Like your favorite HBO series, this is where we have to leave off for now!  The next post will take a large chunk of what we did here to build a sweet prompt though!  A sneak peak, it involves script blocks!
+This is where we have to leave off for now!  The next post will take a large chunk of what we did here to build a sweet prompt though!  A sneak peak, it involves script blocks!
 
 ### To Be Continued...
 
 Stay tuned for **Part 2**!
 
 [^1]:
-    So you might look at these screen captures and think that it looks like the whole path is shown.  It is.  I recently switched from [Urxvt][urxvt] to [Termite][termite] and I don't recall if the issue existed before.  I do know that the parent path is displayed properly in a Windows terminal.  Mark this one down as a bug I need to fix!
+    So you might look at these screen captures and think that it looks like the whole path is shown.  **It is.**  I recently switched from [Urxvt][urxvt] to [Termite][termite] and I don't recall if the issue existed before.  I do know that the parent path is displayed properly in a Windows terminal.  Mark this one down as a bug I need to fix!
 
 [^2]:
     There is a lot of good information on color depth.  These Wikipedia pages are great for understanding how machines are able to get 16, 256, 16 million, etc. color ranges.
@@ -285,7 +285,7 @@ Stay tuned for **Part 2**!
     - [Comparison of Terminal Emulators (not an exhaustive list) - Wikipedia][comparison-terminal-emulators-wiki]
 
 [^4]:
-    Nothing is stopping you from also using `[Char]` to display the '[' however I find it adds a little bit more complexity than needed.  You could also build the '[' into your variable, so you don't always need to include it.  These choices are up to you and what you find easiest, after all, it's your prompt!
+    Nothing is stopping you from also using `[Char]` to display the '[' however I find it adds a little bit more complexity than needed.  You could also build the '[' into your variable, so you don't always need to include it.  These choices are up to you and what you find easiest, after all, it's _your_ prompt!
 
 [^5]:
     If you like Powerline fonts, check out [Nerd Fonts][nerd-fonts] for even more options!  Instead of having triangle shaped transitions you can have flames!
