@@ -4,7 +4,7 @@ teaser: In a world with True Color terminals and so many tools, why settle for l
 category: powershell
 tags: [powershell, linux, console]
 published : true
-reddit_post:
+reddit_post: https://www.reddit.com/r/PowerShell/comments/c88m3r/the_mostly_dependency_free_powershell_prompt_part/?
 featured_comments:
 ---
 
