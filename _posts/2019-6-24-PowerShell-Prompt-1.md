@@ -260,6 +260,7 @@ font = Noto Mono for Powerline 12
 I am only going to cover the Windows Console and Termite here, presumably if you are using another terminal emulator you are familiar with how to change the font, if not it probably has some great documentation somewhere on how to do it.
 
 Now that we have one or more PowerLine fonts installed and configured out terminal to use it, what does it add?  A few nifty characters.
+
 ![powerline]({{ site.baseurl }}/images/2019-6-24-PowerShell-Prompt/powerline.png)
 
 _"How would we use these arrows though?"_  They will be the transition characters from one part of the prompt to the next![^5]
@@ -284,7 +285,7 @@ I had thought these were supported before that, turns out I was wrong!  So if yo
 
 I wasn't aware PowerShell (Core) had a new escape sequence for the ESC character!  You can use `` `e`` as an escape, maybe the escape sequence `` `e[m ``.  If you're not using Windows PowerShell you may find this easier, you always have the alternative for compatbility between Windows Powershell and PowerShell (Core).
 
-I also updated the syntax above to use `${_}` syntax. This should make  the code look a little less confusing than the `` `m `` it used to have.  **Thanks /u/TheIncorrigible1**!!!
+I also updated the syntax above to use `${_}m` syntax. This should make  the code look a little less confusing than the `` $_`m `` it used to have.  **Thanks /u/TheIncorrigible1**!!!
 
 [^1]:
     So you might look at these screen captures and think that it looks like the whole path is shown.  **It is.**  I recently switched from [Urxvt][urxvt] to [Termite][termite] and I don't recall if the issue existed before.  I do know that the parent path is displayed properly in a Windows terminal.  Mark this one down as a bug I need to fix!
