@@ -6,6 +6,8 @@ tags: [powershell, linux, console]
 published : true
 reddit_post: https://www.reddit.com/r/PowerShell/comments/c88m3r/the_mostly_dependency_free_powershell_prompt_part/?
 featured_comments:
+  - url: 'https://www.reddit.com/r/PowerShell/comments/c88m3r/the_mostly_dependency_free_powershell_prompt_part/esm99sd/'
+  - url: 'https://www.reddit.com/r/PowerShell/comments/c88m3r/the_mostly_dependency_free_powershell_prompt_part/esmby7f/'
 ---
 
 ## The _(Mostly)_ Dependency Free PowerShell Prompt
@@ -29,6 +31,7 @@ featured_comments:
       - [Manual Linux](#Manual-Linux)
     - [The Prompt](#The-Prompt-1)
   - [To Be Continued...](#To-Be-Continued)
+  - [Update - 7-4-2019](#Update---7-4-2019)
 
 <!-- /TOC -->
 
@@ -164,16 +167,16 @@ This clearly bogged down my gif utility, and we don't have all day to see all 16
 
 ```powershell
 # 3/4-Bit 16 color example
-90..97 + 30..37 | ForEach-Object {"$charEsc[$_`m" + "Colors!"}
+90..97 + 30..37 | ForEach-Object {"$charEsc[${_}m" + "Colors!"}
 
 # 8-Bit 256 color example
-0..255 | ForEach-Object {Write-Host -Object ("$charEsc[38;5;$_`m" + "Colors!") -NoNewline}
+0..255 | ForEach-Object {Write-Host -Object ("$charEsc[38;5;${_}m" + "Colors!") -NoNewline}
 
 # 24-bit color example
 for ($red = 0; $red -le 255; $red++){
     for ($green = 0; $green -le 255; $green++){
         for ($blue = 0; $blue -le 255; $blue++){
-            Write-Host -Object ("$charEsc[38;2;$red;$green;$blue`m" + "COLORS!!! [R$red] [G$green] [B$blue]") -NoNewline
+            Write-Host -Object ("$charEsc[38;2;$red;$green;${blue}m" + "COLORS!!! [R$red] [G$green] [B$blue]") -NoNewline
         }
     }
 }
@@ -268,6 +271,20 @@ This is where we have to leave off for now!  The next post will take a large chu
 ### To Be Continued...
 
 Stay tuned for **Part 2**!
+
+### Update - 7-4-2019
+
+Reddit user /u/TheIncorrigible1 pointed out a couple of things.
+
+> VTY escapes are only supported in a more recent release of Windows 10 in the conhost (like 1803 it was introduced)
+
+I had thought these were supported before that, turns out I was wrong!  So if you're a Windows users on an version of Windows 10 prior to 1803, the VTY escapes won't work!
+
+> If you're on PowerShell Core, the ESC character now has an escape sequence:
+
+I wasn't aware PowerShell (Core) had a new escape sequence for the ESC character!  You can use `` `e`` as an escape, maybe the escape sequence `` `e[m ``.  If you're not using Windows PowerShell you may find this easier, you always have the alternative for compatbility between Windows Powershell and PowerShell (Core).
+
+I also updated the syntax above to use `${_}` syntax. This should make  the code look a little less confusing than the `` `m `` it used to have.  **Thanks /u/TheIncorrigible1**!!!
 
 [^1]:
     So you might look at these screen captures and think that it looks like the whole path is shown.  **It is.**  I recently switched from [Urxvt][urxvt] to [Termite][termite] and I don't recall if the issue existed before.  I do know that the parent path is displayed properly in a Windows terminal.  Mark this one down as a bug I need to fix!
