@@ -39,7 +39,7 @@ Clone down the package from the AUR.
 git clone https://aur.archlinux.org/powershell-preview-bin.git
 ```
 
-Once cloned down we'll need to modify the _PKGBUILD_ file.  This is pretty a pretty standard step in general as it's good to review the _PKGBUILD_ even if you don't intend to modify it to make sure evil doers and bad guys didn't hide anything malicious in them!
+Once cloned down we'll need to modify the _PKGBUILD_ file.  This is pretty a pretty standard step and generally it's good to review the _PKGBUILD_ even if you don't intend to modify it to make sure evil doers and bad guys didn't hide anything malicious in them!
 
 ```bash
 # Navigate into the clone Git repository for the AUR package.
@@ -50,7 +50,7 @@ cat ./PKGBUILD
 
 #### Step 2 - Updating the PKGBUILD File
 
-Reveiwing the PKGBUILD we can see this one is fairly cut and dry.  We have some metadata about the package at the top, followed by a simple Bash script in the bottom half.
+Reviewing the PKGBUILD we can see this one is fairly cut and dry.  We have some metadata about the package at the top, followed by a simple Bash script in the bottom half.
 
 ```bash
 # Maintainer: Thiago França da Silva <packagemaintainer@email.com>
@@ -84,7 +84,7 @@ package() {
 }
 ```
 
-In looking through this code, I know there are at a minimum 2 things we need to change to get the latest `pwsh-preview` package installed.  Since the Bash script is variablized from the top section the actual script doesn't need any modification, just the top.
+In looking through this code, I know there are at a minimum 2 things we need to change to get the latest `pwsh-preview` package installed.  Since the Bash script uses variables from the top section the actual script doesn't need any modification, just the top.
 
 1. `_pkgver=7.0.0-preview.3`
    1. Changing this to the latest preview will feed the right version as a variable to the "source" line.
@@ -109,14 +109,13 @@ In addition we need to update the checksum.  If you look at the source line...
 source=("https://github.com/PowerShell/PowerShell/releases/download/v${_pkgver}/powershell-preview_${_pkgver}-1.ubuntu.18.04_amd64.deb")
 ```
 
-...you can see this AUR package uses the "**ubuntu.18.04_amd64.deb**" deb package.
+You can see this AUR package uses the "**ubuntu.18.04_amd64.deb**" deb package.
 
-Checking the [release][Powershell_Release] page for PowerShell 7.0, you can see the "**ubuntu.18.04_amd64.deb**" package for PowerShell 7.0 Preview 4 has the following checksum...
+Checking the [release][Powershell_Release] page for PowerShell 7.0, you'll see the "**ubuntu.18.04_amd64.deb**" package for PowerShell 7.0 Preview 4 has the following checksum...
 
 `FE7D23C4301F8E2FF890ECF1E9B3398F0F2EB063253D35E6C44F5FFC87D98D65`
 
-Here it what it looks like on Github.
-
+*Here it what it looks like on Github.*
 ![PS7P4-ReleaseChecksum]({{ site.baseurl }}/images/2019-10-13-PowerShell-Previews-on-Arch/PS7P4-ReleaseChecksum.png)
 
 This means we need to update the following line for the checksum from...
@@ -131,7 +130,7 @@ to...
 sha256sums=('FE7D23C4301F8E2FF890ECF1E9B3398F0F2EB063253D35E6C44F5FFC87D98D65')
 ```
 
-After changing those two lines all together it should look like the example below.  Edit the *PKGBUILD* file  in your editor of choice (vi, vim, nano, ed, emacs, vscode, you get the point).
+After changing those two lines all together it should look like the example below.  Edit the *PKGBUILD* file in your editor of choice (*vi, vim, nano, ed, emacs, vscode, you get the point*).
 
 ```bash
 # Maintainer: Thiago França da Silva <packagemaintainer@email.com>
@@ -170,18 +169,18 @@ package() {
 Now that we've modified the parts needed to grab the latest preview file from Github and adjusted the checksum for it building it is as easy as running `makepkg`.
 
 ```bash
-# Run a makepgk to build it
-makepkg
+# Run a makepgk to build it with -i to install it.
+makepkg -i
 ```
 
-The gif below shows the updated *PKGBUILD* as well as the `makepkg` process.  In this case running `makepkg -i` will also install the package once it's built.  The `-i` switch tells `makepkg` to also install the package we are building from the *PKGBUILD*.  Since it has to copy files to parts of the filesystem that require root access it prompts when needed.
+The gif below shows the updated *PKGBUILD* as well as the `makepkg` process.  In this case running `makepkg -i` will also install the package we are building from the *PKGBUILD* once it's built.  Since it has to copy files to parts of the filesystem that require root access it prompts when needed.
 
 ![makepkg]({{ site.baseurl }}/images/2019-10-13-PowerShell-Previews-on-Arch/makepkg.gif)
-*This gif is a bit over a minute, but shows the edited PKGBUILD and makepkg install.  Also my gif utility OR i3 was causing some flickering, please bear with it!*
+*This gif is a bit over a minute, but shows the edited PKGBUILD and makepkg install.  Also my gif utility AND/OR i3 was causing some flickering, please bear with it!*
 
 Just like that, PowerShell 7.0 Preview 4 is installed. The main take away, it's always a good idea to remind the AUR package maintainer that there is an update available!  
 
-I acknowledge most folks using Arch Linux may already know how to do this, and anyone using a Microsoft supported distribution for PowerShell can use whatever the built in package manager is.  If you were an Arch Linux user and curious on how to get the latest and greatest PowerShell 7.0 preview, hopefully this helps!
+I acknowledge most folks using Arch Linux may already know how to do this, and anyone using a Microsoft supported distribution for PowerShell 6+ can use whatever the built in package manager is.  If you were an Arch Linux user and curious on how to get the latest and greatest PowerShell 7.0 preview, hopefully this helps!
 
 [AUR]:https://aur.archlinux.org/
 [Arch Wiki AUR]:https://wiki.archlinux.org/index.php/Arch_User_Repository
