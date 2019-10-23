@@ -18,7 +18,7 @@ featured_comments:
   - [Tweaking and Manually Installing an AUR Package](#tweaking-and-manually-installing-an-aur-package)
     - [Step 1 - Clone Down the AUR Package](#step-1---clone-down-the-aur-package)
     - [Step 2 - Updating the PKGBUILD File](#step-2---updating-the-pkgbuild-file)
-    - [Step 3](#step-3)
+    - [Step 3 - makepkg and Install it!](#step-3---makepkg-and-install-it)
 
 ### Intro
 
@@ -165,7 +165,7 @@ package() {
 }
 ```
 
-#### Step 3
+#### Step 3 - makepkg and Install it!
 
 Now that we've modified the parts needed to grab the latest preview file from Github and adjusted the checksum for it building it is as easy as running `makepkg`.
 
