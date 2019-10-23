@@ -4,7 +4,7 @@ teaser: When in doubt, makepkg it out!
 category: powershell
 tags: [powershell, linux]
 published : true
-reddit_post: 
+reddit_post: https://ephos.github.io/posts/2019-10-13-PowerShell-Previews-on-Arch
 featured_comments:
 ---
 
