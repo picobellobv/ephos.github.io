@@ -5,7 +5,8 @@ category: powershell
 tags: [powershell, linux]
 published : true
 reddit_post: https://ephos.github.io/posts/2019-10-13-PowerShell-Previews-on-Arch
-featured_comments:
+featured_comments: 
+  - url: 'https://www.reddit.com/r/PowerShell/comments/dm0vkj/powershell_previews_on_arch_linux/f4vollv/'
 ---
 
 ## Installing the Latest PowerShell Previews on Arch Linux
