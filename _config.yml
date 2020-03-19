@@ -44,6 +44,11 @@ projects:
     url: https://github.com/ephos/PSSummit2018-Plaster
     role: Creator
     category: PowerShell
+  - title: PSCOVID-19
+    teaser: When a global pandemic is declared, it's time to write a PowerShell Module!
+    url: https://github.com/ephos/PSCOVID-19
+    role: Creator
+    category: PowerShell
 
 ###########
 # Plugins #
@@ -62,6 +67,10 @@ exclude:
   - LICENSE
   - README.md
   - TODO.md
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
 
 permalink: /:collection/:path
 

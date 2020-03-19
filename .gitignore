@@ -1,6 +1,12 @@
+# Ignore Jekyll
 _site/
 .sass-cache/
 .jekyll-metadata
 .DS_Store
-Gemfile.lock
+
+# Ingore VSCode 
 .vscode
+
+# Ignore Ruby Gems
+Gemfile.lock
+vendor
